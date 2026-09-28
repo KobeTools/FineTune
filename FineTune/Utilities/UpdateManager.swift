@@ -19,8 +19,7 @@ final class UpdateManager: NSObject, ObservableObject {
         )
         super.init()
 
-        // Start updater to enable manual checks, but don't trigger auto-check UI
-        try? updaterController.updater.start()
+        // Fork builds from source: never start Sparkle or pull upstream binaries.
 
         // Observe when updates can be checked
         updaterController.updater.publisher(for: \.canCheckForUpdates)
